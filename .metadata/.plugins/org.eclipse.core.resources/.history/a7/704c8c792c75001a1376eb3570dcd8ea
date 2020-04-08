@@ -1,0 +1,59 @@
+package xmlgenerate.practise;
+
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+
+@JsonPropertyOrder({ "phone_memory", "phone_displaySize", "phone_name" })
+
+public class PhoneDetails {
+
+	@JsonProperty("phone_name")
+	private String name;
+	
+	@JsonProperty("phone_displaySize")
+    private String displaySize;
+	
+	@JsonProperty("phone_memory")
+    private String memory;
+	
+	@JacksonXmlElementWrapper(localName="other_phones")
+    private List<Phone> phone;
+	
+    	public List<Phone> getPhone() {
+		return phone;
+	}
+	public void setPhone(List<Phone> phone) {
+		this.phone = phone;
+	}
+		public PhoneDetails(String name, String displaySize, String memory, Phone ph) {
+		this.name=name;
+		this.displaySize=displaySize;
+		this.memory=memory;
+		this.phone=(List<Phone>) ph;
+	
+	}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public String getDisplaySize() {
+			return displaySize;
+		}
+		public void setDisplaySize(String displaySize) {
+			this.displaySize = displaySize;
+		}
+		public String getMemory() {
+			return memory;
+		}
+		public void setMemory(String memory) {
+			this.memory = memory;
+		}
+		
+	    // getters and setters
+	
+}

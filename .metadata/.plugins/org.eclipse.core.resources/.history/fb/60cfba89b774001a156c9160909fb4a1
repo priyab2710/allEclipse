@@ -1,0 +1,11 @@
+package xmlgenerate.practise;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class Listeners {
+
+	
+	@JsonProperty("listener")
+	private String Listener;
+	
+}

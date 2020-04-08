@@ -1,0 +1,1 @@
+<suite name="PriyaTest"><test name="postpet"><parameter name="Data" value="testdata.pet"/><classes><class name="com.clientN.testscripts.PetSwaggerPetTest"/></classes></test><test name="getpet"><parameter name="Data" value="testdata.pet"/><classes><class name="com.clientN.testscripts.PetSwaggerPetTest"/></classes></test></suite>

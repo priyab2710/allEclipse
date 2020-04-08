@@ -1,0 +1,12 @@
+package com.clientN.processor;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+public class Listeners {
+
+	
+	 @JsonProperty("listener")
+	    private String listener;
+
+	}

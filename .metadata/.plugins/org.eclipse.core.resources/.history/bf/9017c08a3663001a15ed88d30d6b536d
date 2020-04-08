@@ -1,0 +1,17 @@
+package Utilities;
+
+import files.Payload;
+import io.restassured.path.json.JsonPath;
+
+public class GetResponse {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		   JsonPath js=new JsonPath(Payload.CourseResponseJson());
+           
+		
+	}
+
+}

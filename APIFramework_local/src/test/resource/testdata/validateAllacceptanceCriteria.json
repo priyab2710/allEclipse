@@ -1,0 +1,17 @@
+{
+"Sandbox_TestURL" : "https://api.covid19api.com/",
+"endPoint" : "/countries",
+
+"Acceptance_Criteria1" : 
+		{
+			"Country" : "India"
+		},
+"Acceptance_Criteria2" :
+		{
+			"Provinces" :
+	        [
+	            "Victoria" 
+	            
+	        ]
+		}
+}

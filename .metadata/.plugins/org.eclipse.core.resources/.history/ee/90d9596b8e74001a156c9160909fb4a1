@@ -1,0 +1,52 @@
+package utilities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+
+public class Suite1 {
+
+    private String Listeners ="weblisten" ;   
+	public List<Test> getTests() {
+		return tests;
+	}
+
+
+
+	public void setTests(List<Test> tests) {
+		this.tests = tests;
+	}
+	private String parameter = "priyaparam";
+	private List < Test > tests;
+	
+	@JacksonXmlProperty(isAttribute = true)
+    private String name;
+	
+	 public Suite1(String name) {
+	        this.name = name;
+	        this.tests = new ArrayList < Suite1.Test > ();
+	        
+	    }
+	   
+		
+		
+	public String getListeners() {
+			return Listeners;
+		}
+		public void setListeners(String listeners) {
+			Listeners = listeners;
+		}
+		class Test {
+			
+			@JacksonXmlProperty(isAttribute = true)
+	        private String name;
+			
+			 public Test(String name) {
+		            this.name = name;
+		          //  klasses = new Classes();
+		        }
+		}
+		}
+	   
+

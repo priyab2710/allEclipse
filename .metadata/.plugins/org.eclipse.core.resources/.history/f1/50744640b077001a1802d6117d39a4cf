@@ -1,0 +1,24 @@
+package XML;
+
+
+import org.testng.annotations.Test;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+
+
+public class XMLgenerate {
+
+	@Test
+	public void CallSuite() throws JsonProcessingException
+	{
+		XmlMapper xm= new XmlMapper();
+	Suite s = new Suite("priya");
+	Listeners l = new Listeners();
+	String xs= xm.writeValueAsString(s);
+	String xs= xm.writeValueAsString(l);
+	System.out.println(xs);
+	
+		}
+}

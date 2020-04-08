@@ -1,0 +1,99 @@
+package com.clientN.library;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.net.URL;
+import java.nio.charset.Charset;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
+import org.apache.log4j.Logger;
+import org.json.JSONException;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+import org.testng.Assert;
+
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import static io.restassured.RestAssured.given;
+
+
+public class JsonReader {
+
+  private static Logger logger = Logger.getLogger(JsonReader.class.getName());
+  
+  private String readAll(Reader rd) throws IOException {
+    StringBuilder sb = new StringBuilder();
+    int cp;
+    while ((cp = rd.read()) != -1) {
+      sb.append((char) cp);
+    }
+    return sb.toString();
+  }
+
+  	public JsonPath getResponse(int loop,LinkedHashMap<String,HashMap<String, String>> value){
+		 Response respApi = null;
+		 JsonPath jp = null;
+		  try {
+			  
+		 ////to update loop here for data param @prabs
+		 HashMap<String, String> parametermap =  value.get("testparameters");
+		 logger.info("the end point url is : "+parametermap.get("baseuri"));
+		 String bodyre = parametermap.get("body");
+		 String endpoint = parametermap.get("endpoint");
+		 String baseuri = parametermap.get("baseuri");
+		 int stuscode = 0;
+		 try {
+			 stuscode = Integer.parseInt(parametermap.get("statuscode"));
+		 }catch(NumberFormatException e) {
+			 logger.info("The status code should be integer, Please reverify the json input");
+			 throw new Exception("The status code should be integer, Please reverify the json input");
+		 }
+		 boolean body = (parametermap.get("method").equals("get")? false : true);
+		 RestAssured.baseURI  = parametermap.get("baseuri");
+		 if(body) {
+		 	respApi = given().contentType("application/json").when().body(parametermap.get("body")).post(parametermap.get("endpoint")).then().extract().response();
+		 Assert.assertEquals(respApi.getStatusCode(), stuscode , "Expected response code "+ stuscode +" is not returned. The response code is  :"+respApi.getStatusCode());
+		 }
+			  if(!body) {
+				 respApi = given().contentType("application/json").when().get(parametermap.get("endpoint"));
+		 Assert.assertEquals(respApi.getStatusCode(), stuscode , "Expected response code "+ stuscode +" is not returned. The response code is  :"+respApi.getStatusCode());
+		   System.out.println(respApi);
+			  }
+			  jp = respApi.jsonPath();
+		  }catch(Exception e) {
+			  e.printStackTrace();
+		  }
+		  return jp;
+
+   
+  }
+  
+  public JSONObject processJsonTestData(String filename) throws Exception{
+	  JSONParser jsonParser = new JSONParser();
+      String directory = System.getProperty("user.dir")+"/src/test/resource/testdata/pet/"+filename+".json";
+	  
+      try (FileReader reader = new FileReader(directory))
+      {
+          //Read JSON file
+          Object obj = jsonParser.parse(reader);
+          org.json.simple.JSONObject jobj = (org.json.simple.JSONObject) obj;
+		  return jobj;
+       } catch (FileNotFoundException e) {
+    	  throw new Exception(e);
+      } catch (IOException e) {
+    	  throw new Exception(e);
+      } catch (ParseException e) {
+    	  throw new Exception(e);
+      }
+  }
+  
+}
+
+

@@ -1,0 +1,22 @@
+package practice;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+import xmlgenerate.practise.PhoneDetails;
+
+public class Generate {
+
+	public static void serializeToXML () throws JsonProcessingException
+	{
+	XmlMapper xmlmap=new XmlMapper();
+	
+//	Suite s= new Suite();
+	
+	 String xmlString = xmlmap.writeValueAsString(new Suite("priya"));
+	}
+		public static void main(String[] args) {
+		    System.out.println("Serializing to XML...");
+		    serializeToXML();
+		}
+}

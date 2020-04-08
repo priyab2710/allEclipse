@@ -1,0 +1,27 @@
+package XML;
+
+
+import java.io.File;
+import java.io.IOException;
+
+import org.testng.annotations.Test;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+
+
+public class XMLgenerate {
+
+	@Test
+	public void CallSuite() throws IOException
+	{
+		XmlMapper xm= new XmlMapper();
+	Suite s = new Suite("priya", "test123");
+	
+	
+	xm.writeValue(new File("testng-suite.xml"), s);
+	
+	
+		}
+}

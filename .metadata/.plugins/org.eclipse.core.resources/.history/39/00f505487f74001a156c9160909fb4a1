@@ -1,0 +1,20 @@
+package utilities;
+
+import org.testng.annotations.Test;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+public class SerializeJavaToXML {
+
+	
+	@Test
+	public void whenJavaSerializedToXmlStr_thenCorrect() throws JsonProcessingException {
+	    XmlMapper xmlMapper = new XmlMapper();
+	    String xml = xmlMapper.writeValueAsString(new ClassToSerialize());
+	   // String xml1 = xmlMapper.writeValueAsString(new ClassToSerialize());
+	   // assertNotNull(xml);
+	    
+	    System.out.println(xml+xml1);
+	}
+}

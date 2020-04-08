@@ -1,0 +1,67 @@
+package com.clientN.testscripts;
+
+import java.util.HashMap;
+
+import org.apache.log4j.Logger;
+import org.testng.Assert;
+import org.testng.ITestNGMethod;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import com.clientN.library.AutomationBuddy;
+import com.clientN.library.JsonReader;
+import com.clientN.reports.BaseTest;
+import com.relevantcodes.extentreports.LogStatus;
+
+/**
+ * Unit test for simple Api.
+ * @author Divs
+ */
+public class AcceptanceCriteriaTest extends BaseTest{
+
+	private static Logger logger = Logger.getLogger(AcceptanceCriteriaTest.class.getName());
+	JsonReader jreader = new JsonReader();
+	String methodname;
+	/**
+	 * @throws Exception 
+	 */
+	
+	
+	
+   /**
+	 * @param key
+	 * @param Value
+	 * @throws Exception
+	 */
+	@Test(dataProvider="testScripts")
+    public void validateAllacceptanceCriteria(String key,String Value) throws Exception{
+		
+	System.out.println("I am in validateAllacceptanceCriteria testcase1");
+	}
+
+	
+	
+	/**
+	 * @param key
+	 * @param Value
+	 * @throws Exception
+	 */
+	/*@Test(dataProvider="testScripts")
+    public void validateacceptanceCriteria(String key, String Value) throws Exception{
+		System.out.println("I am in validateacceptanceCriteria testcase2");
+    }*/
+	
+	
+	/**
+	 * @return 
+	 * @throws Exception
+	 */
+	@DataProvider
+	public Object[][] testScripts(ITestNGMethod test) throws Exception {
+		methodname = test.getMethodName();
+		
+		System.out.println("I am in dataprovider with test ="+test+ " metodname "+methodname);
+		return AutomationBuddy.dataprovider(test);
+		
+	}
+}

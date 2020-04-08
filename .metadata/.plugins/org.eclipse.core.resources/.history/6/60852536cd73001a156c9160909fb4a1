@@ -1,0 +1,25 @@
+package demo.testngpractise;
+
+import org.testng.annotations.Test;
+
+public class demo1 {
+
+	
+	@Test
+	public void destcase1()
+	{
+		
+	}
+	
+	@Test
+	public void aestcase2()
+	{
+		
+	}
+	
+	@Test
+	public void bestcase3()
+	{
+		
+	}
+}

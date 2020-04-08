@@ -1,0 +1,46 @@
+package xmlgenerate.practise;
+
+import java.util.List;
+
+public class PhoneDetails {
+
+	private String name;
+    private String displaySize;
+    private String memory;
+    private List<AddListeners> listeners;
+
+	 public List<AddListeners> getListeners() {
+		return listeners;
+	}
+	 
+	public void setListeners(List<AddListeners> listeners) {
+		this.listeners = listeners;
+	}
+		public PhoneDetails(String name, String displaySize, String memory, List listenerlist) {
+		this.name=name;
+		this.displaySize=displaySize;
+		this.memory=memory;
+		this.listeners=listenerlist;
+	}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public String getDisplaySize() {
+			return displaySize;
+		}
+		public void setDisplaySize(String displaySize) {
+			this.displaySize = displaySize;
+		}
+		public String getMemory() {
+			return memory;
+		}
+		public void setMemory(String memory) {
+			this.memory = memory;
+		}
+		
+	    // getters and setters
+	
+}

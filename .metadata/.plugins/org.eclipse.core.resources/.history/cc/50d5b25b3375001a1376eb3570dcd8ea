@@ -1,0 +1,17 @@
+package practice;
+
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+
+@JacksonXmlRootElement(localName="Suite")
+public class Suite {
+
+	@JacksonXmlProperty(isAttribute=true)
+	private String name;
+	
+	@JacksonXmlProperty(localName="listeners")
+	private String Listeners
+	
+	@JacksonXmlProperty
+	private String Tests
+}

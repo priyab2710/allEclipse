@@ -1,0 +1,12 @@
+package practice;
+
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+public class Generate {
+
+	
+	XmlMapper xmlmap=new XmlMapper();
+	
+	Suite s= new Suite();
+	
+}

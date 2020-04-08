@@ -1,0 +1,12 @@
+package xmlgenerate.practise;
+
+public class PhoneDetails {
+
+	
+	    private String name;
+	    private String displaySize;
+	    private String memory;
+
+	    // getters and setters
+	
+}

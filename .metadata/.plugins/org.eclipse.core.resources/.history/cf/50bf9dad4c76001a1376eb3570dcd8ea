@@ -1,0 +1,25 @@
+package library;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+
+public class SpecBuilders {
+
+	
+	public static RequestSpecification requestBuilder()
+	{
+		
+		RequestSpecification req= new RequestSpecBuilder().setContentType(ContentType.JSON).build();
+		return req;
+	}
+	
+	public static ResponseSpecification responseBuilder()
+	{
+		
+		ResponseSpecification res= new ResponseSpecBuilder().expectContentType(ContentType.JSON).build();
+		return res;
+	}
+}

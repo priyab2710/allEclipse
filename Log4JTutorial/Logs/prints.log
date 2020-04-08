@@ -1,0 +1,13 @@
+10:22:55:139 [main] DEBUG PackageA.Demo1 I am debugging 4
+10:22:55:148 [main] FATAL PackageA.Demo1 This is fatal 4
+10:22:55:148 [main] INFO  PackageA.Demo1 This is info 4
+10:22:55:148 [main] ERROR PackageA.Demo1 Object is smaller than 4
+10:35:48:858 [main] DEBUG PackageA.act Setting chrome driver property
+10:36:00:669 [main] INFO  PackageA.act Window Maximized
+10:36:00:670 [main] DEBUG PackageA.act Now hitting Amazon server
+10:36:05:019 [main] INFO  PackageA.act Landed on amazon home page
+10:36:11:036 [main] DEBUG PackageA.act Getting the frames count
+10:36:11:062 [main] INFO  PackageA.act Frames count retreived
+10:36:11:084 [main] INFO  PackageA.act Successfully switched to frame
+10:36:11:084 [main] DEBUG PackageA.act Identifying Draggable objects
+10:36:11:422 [main] INFO  PackageA.act Drag and drop success

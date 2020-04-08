@@ -1,0 +1,17 @@
+10:22:31:877 [main] ERROR PackageA.Demo1 Object is smaller than 3
+10:22:31:885 [main] DEBUG PackageA.Demo1 I am debugging 4
+10:22:31:886 [main] FATAL PackageA.Demo1 This is fatal 4
+10:22:31:886 [main] INFO  PackageA.Demo1 This is info 4
+10:22:31:886 [main] ERROR PackageA.Demo1 Object is smaller than 4
+10:22:55:133 [main] DEBUG PackageA.Demo1 I am debugging 1
+10:22:55:136 [main] FATAL PackageA.Demo1 This is fatal 1
+10:22:55:136 [main] INFO  PackageA.Demo1 This is info 1
+10:22:55:136 [main] ERROR PackageA.Demo1 Object is smaller than 1
+10:22:55:136 [main] DEBUG PackageA.Demo1 I am debugging 2
+10:22:55:136 [main] FATAL PackageA.Demo1 This is fatal 2
+10:22:55:136 [main] INFO  PackageA.Demo1 This is info 2
+10:22:55:139 [main] ERROR PackageA.Demo1 Object is smaller than 2
+10:22:55:139 [main] DEBUG PackageA.Demo1 I am debugging 3
+10:22:55:139 [main] FATAL PackageA.Demo1 This is fatal 3
+10:22:55:139 [main] INFO  PackageA.Demo1 This is info 3
+10:22:55:139 [main] ERROR PackageA.Demo1 Object is smaller than 3

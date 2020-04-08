@@ -1,0 +1,18 @@
+package payload.pet;
+
+import static io.restassured.RestAssured.given;
+
+import library.SpecBuild;
+
+public class GetQueryBuilder {
+
+	
+	public static String GetResponse(long id)
+	{
+		  String getResponse=
+					 given().spec(SpecBuild.requestBuild()).when().get("/pet/"+ id)
+					 .then().spec(SpecBuild.responseBuild())
+					 .extract().response().asString();
+          return getResponse;
+	}
+}

@@ -1,0 +1,18 @@
+<suite name="PriyaTest">
+	<listeners>
+		<listener>com.clientN.reports.WebTestListeners</listener>
+		<listener></listener>
+	</listeners>
+	<test name="postpet">
+		<parameter name="Data" value="testdata.pet" />
+		<classes>
+			<class name="com.clientN.testscripts.PetSwaggerPetTest" />
+		</classes>
+	</test>
+	<test name="getpet">
+		<parameter name="Data" value="testdata.pet" />
+		<classes>
+			<class name="com.clientN.testscripts.PetSwaggerPetTest" />
+		</classes>
+	</test>
+</suite>

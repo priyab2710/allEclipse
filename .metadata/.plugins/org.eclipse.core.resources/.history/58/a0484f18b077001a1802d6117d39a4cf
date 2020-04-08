@@ -1,0 +1,22 @@
+package XML;
+
+	import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+	import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+	
+
+	
+
+
+
+		
+		public class Listeners {
+
+		   	    
+		        
+		    @JacksonXmlProperty(localName = "listener")    
+		    @JacksonXmlElementWrapper(useWrapping = false)
+		    private String listener;
+		    
+		   			        
+			  
+		 }

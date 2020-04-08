@@ -1,0 +1,12 @@
+package library;
+
+public class SpecBuilders {
+
+	
+	public static void requestBuilder()
+	{
+		
+		 new RequestSpecBuilder()
+		return RequestSpecification;
+	}
+}

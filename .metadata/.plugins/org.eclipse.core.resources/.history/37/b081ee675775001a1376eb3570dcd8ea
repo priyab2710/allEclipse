@@ -1,0 +1,11 @@
+package payload;
+
+import io.restassured.path.json.JsonPath;
+
+public class JsonParser {
+
+	
+	public void jsonparser() {
+	JsonPath js = new JsonPath(Payload.PostRequest());
+	}
+}

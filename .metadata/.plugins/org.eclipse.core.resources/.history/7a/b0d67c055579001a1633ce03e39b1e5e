@@ -1,0 +1,61 @@
+package payload.pet;
+
+import static io.restassured.RestAssured.given;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+
+
+public class PostPetQueryBuilder {
+
+	static String PostPetResource="/pet";
+	static String Base_URI="https://petstore.swagger.io/v2/";
+	
+	public static String addPet(String categoryName,  String name, String tagName, String status)
+	{
+		
+		String request="{\r\n" + 
+				"  \"id\": 0,\r\n" + 
+				"  \"category\": {\r\n" + 
+				"    \"id\": 0,\r\n" + 
+				"    \"name\": \""+categoryName+"\"\r\n" + 
+				"  },\r\n" + 
+				"  \"name\": \""+name+"\",\r\n" + 
+				"  \"photoUrls\": [\r\n" + 
+				"    \"string\"\r\n" + 
+				"  ],\r\n" + 
+				"  \"tags\": [\r\n" + 
+				"    {\r\n" + 
+				"      \"id\": 0,\r\n" + 
+				"      \"name\": \""+tagName+"\"\r\n" + 
+				"    }\r\n" + 
+				"  ],\r\n" + 
+				"  \"status\": \""+status+"\"\r\n" + 
+				"}";
+
+		String postResponse = given().spec(postrequestBuild())
+				  .body(request)
+				  .when().post(PostPetResource)
+				  .then().spec(postresponseBuild()).extract().response().asString();
+		
+		//JsonaddPetResponse = JsonParser.jsonparser(postResponse);
+		return postResponse;
+	}
+	
+	public static RequestSpecification postrequestBuild()
+	{
+		
+		RequestSpecification req= new RequestSpecBuilder().setBaseUri(Base_URI).setContentType(ContentType.JSON).build();
+		return req;
+	}
+	
+	public static ResponseSpecification postresponseBuild()
+	{
+		
+		ResponseSpecification res= new ResponseSpecBuilder().expectContentType(ContentType.JSON).expectStatusCode(200).build();
+		return res;
+	}
+}

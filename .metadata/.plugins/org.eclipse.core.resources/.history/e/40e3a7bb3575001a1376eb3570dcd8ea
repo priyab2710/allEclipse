@@ -1,0 +1,15 @@
+package practice;
+
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+import xmlgenerate.practise.PhoneDetails;
+
+public class Generate {
+
+	
+	XmlMapper xmlmap=new XmlMapper();
+	
+	Suite s= new Suite();
+	
+	 String xmlString = xmlmap.writeValueAsString(new Suite("priya"));
+}

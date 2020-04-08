@@ -1,0 +1,70 @@
+package XML;
+
+import java.util.ArrayList;
+import java.util.List;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
+
+import XML.suitecopy.Classes;
+
+
+
+	@JacksonXmlRootElement(localName = "suite")
+	public class Suite {
+
+	    @JacksonXmlProperty(isAttribute = true)
+	    private String name;	    
+	        
+	    @JacksonXmlProperty(localName = "listeners")    
+	    @JacksonXmlElementWrapper(useWrapping = false)
+	    private List<String> listener;
+	    
+	    @JacksonXmlProperty(localName = "test")
+	    @JacksonXmlElementWrapper(useWrapping = false)
+	    private List < String > tests;
+
+	    
+	   public Suite(String name)
+	    {
+
+             this.name=name;
+	    }
+	    
+	  /*  public List<Test> getTests() {
+			return tests;
+		}
+
+
+		public void setTests(List<Test> tests) {
+			this.tests = tests;
+		}
+
+
+		class Test
+	    {
+	    	 @JacksonXmlProperty(isAttribute = true)
+	 	     private String name;
+
+	    	 
+	    	  public Test(String name) {
+		            this.name = name;
+		            
+		        }
+
+
+	    	
+			public String getName() {
+				return name;
+			}
+
+			public void setName(String name) {
+				this.name = name;
+			}	 
+	    	 
+	    	 
+	    }
+	*/    
+	   
+			  
+	}

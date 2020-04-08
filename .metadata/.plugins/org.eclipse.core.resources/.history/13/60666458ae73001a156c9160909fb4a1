@@ -1,0 +1,9 @@
+{
+"Sandbox_TestURL" : "https://petstore.swagger.io/v2",
+"endPoint" : "/pet",
+
+"Acceptance_Criteria1" : 
+		{
+			"name" : "doggy400"
+		}
+}

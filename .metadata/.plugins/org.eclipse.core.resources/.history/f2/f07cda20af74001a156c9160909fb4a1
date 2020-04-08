@@ -1,0 +1,35 @@
+package xmlgenerate.practise;
+
+public class PhoneDetails {
+
+	
+	    public PhoneDetails(String name, String displaySize, String memory) {
+		this.name=name;
+		this.displaySize=displaySize;
+		this.memory=memory;
+	}
+		public String getName() {
+			return name;
+		}
+		public void setName(String name) {
+			this.name = name;
+		}
+		public String getDisplaySize() {
+			return displaySize;
+		}
+		public void setDisplaySize(String displaySize) {
+			this.displaySize = displaySize;
+		}
+		public String getMemory() {
+			return memory;
+		}
+		public void setMemory(String memory) {
+			this.memory = memory;
+		}
+		private String name;
+	    private String displaySize;
+	    private String memory;
+
+	    // getters and setters
+	
+}

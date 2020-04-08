@@ -1,0 +1,109 @@
+package utilities;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+
+import utilities.Suite1.Listeners;
+
+public class Suite1 {
+
+   // private String Listeners ="weblisten" ;   
+	public List<Test> getTests() {
+		return tests;
+	}
+	
+    @JacksonXmlProperty(localName = "listeners")
+    private List<Listeners> listeners;
+
+
+
+	public void setTests(List<Test> tests) {
+		this.tests = tests;
+	}
+	private String parameter = "priyaparam";
+	private List < Test > tests;
+	
+	public String getParameter() {
+		return parameter;
+	}
+
+
+
+	public void setParameter(String parameter) {
+		this.parameter = parameter;
+	}
+
+
+
+	public String getName() {
+		return name;
+	}
+
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	@JacksonXmlProperty(isAttribute = true)
+    private String name;
+	
+	 public Suite1(String name) {
+	        this.name = name;
+	        this.listeners = new ArrayList < Suite1.Listeners > ();
+	        this.tests = new ArrayList < Suite1.Test > ();
+	        
+	    }
+	 
+	
+	   
+		
+		
+	public List<Listeners> getListeners() {
+			return listeners;
+		}
+	
+		public void setListeners(List<Listeners> listeners) {
+			this.listeners = listeners;
+		}
+		class Test {
+			
+			@JacksonXmlProperty(isAttribute = true)
+	        private String name;
+			
+			 public Test(String name) {
+		            this.name = name;
+		          //  klasses = new Classes();
+		        }
+		}
+		
+		class Listeners {
+
+	        @JacksonXmlProperty(localName = "class")
+	        @JacksonXmlElementWrapper(useWrapping = false)
+	        private List < Listener > listeners;
+
+	        public Listeners() {
+	            this.listeners = new ArrayList < Suite1.Listener > ();
+	        }
+
+	        public void addListeners(String name) {
+	            this.listeners.add(new Listener(name));
+	        }
+	    }
+
+	    class Listener {
+
+	        @JacksonXmlProperty(isAttribute = true)
+	        private String name;
+
+	        Listener(String name) {
+	            this.name = name;
+	        }
+
+	    }
+		}
+	   
+

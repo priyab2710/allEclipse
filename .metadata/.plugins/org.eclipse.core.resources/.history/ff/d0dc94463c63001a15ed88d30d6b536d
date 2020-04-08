@@ -1,0 +1,14 @@
+package Utilities;
+
+import files.Payload;
+import io.restassured.path.json.JsonPath;
+
+public class MockResponse {
+
+	
+	public JsonPath mockCourse() 
+	{
+		JsonPath js=new JsonPath(Payload.CourseResponseJason());
+		return js;
+	}
+}

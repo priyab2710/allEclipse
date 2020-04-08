@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="26177" started-at="2020-02-27T16:17:27 NZDT" finished-at="2020-02-27T16:17:53 NZDT">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="26177" started-at="2020-02-27T16:17:27 NZDT" finished-at="2020-02-27T16:17:53 NZDT">
+      <class name="PackageB.LoginPageTest">
+        <test-method status="PASS" signature="VerifyLogin()[pri:0, instance:PackageB.LoginPageTest@63753b6d]" name="VerifyLogin" duration-ms="26143" started-at="2020-02-27T16:17:27 NZDT" finished-at="2020-02-27T16:17:53 NZDT">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyLogin -->
+      </class> <!-- PackageB.LoginPageTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

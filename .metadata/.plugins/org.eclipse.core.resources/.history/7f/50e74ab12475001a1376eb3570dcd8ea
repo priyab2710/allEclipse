@@ -1,0 +1,33 @@
+package XML;
+
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+
+import XML.Suite.Classes;
+import XML.Suite.Parameter;
+
+class Test {
+
+    @JacksonXmlProperty(isAttribute = true)
+    private String name;
+
+    @JacksonXmlProperty(localName = "parameter")
+    private Parameter param;
+
+    @JacksonXmlProperty(localName = "classes")
+    private Classes klasses;
+
+    public Test(String name) {
+        this.name = name;
+        klasses = new Classes();
+    }
+
+    public void addParam(String name, String value) {
+        param = new Parameter(name, value);
+    }
+
+    public void addClass(String name) {
+        klasses.addClasses(name);
+    }
+
+}
+

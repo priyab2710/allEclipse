@@ -1,0 +1,42 @@
+{
+"Sandbox_TestURL" : "https://petstore.swagger.io/v2",
+"endPoint" : "pet",
+"method" : "post",
+"body" : {
+  "id": 0,
+  "category": {
+    "id": 0,
+    "name": "string"
+  },
+  "name": "dogg",
+  "photoUrls": [
+    "string"
+  ],
+  "tags": [
+    {
+      "id": 0,
+      "name": "string"
+    }
+  ],
+  "status": "available"
+},
+"propertyTransfer" : [
+			{	"variablename" : "categname",
+				"responseparam" : "category.name"
+			},
+			{
+				"variablename" : "categname",
+				"responseparam" : "category.name"
+			}
+		],
+"Acceptance_Criteria" : [
+			{
+				"name" : "dogg",
+				"tags.name" :"string"
+			},
+			{
+				"status": "available"
+		    }
+		],
+"statuscode" : 200
+}

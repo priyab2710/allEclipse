@@ -1,0 +1,33 @@
+{
+"URI" : "https://petstore.swagger.io/",
+"endPoint" : "/v2/pet",
+	"body" : {
+	  "id": ${id},
+	  "category": {
+	    "id": 0,
+	    "name": "${categoryname}"
+	  },
+	  "name": "${name}",
+	  "photoUrls": [
+	    "string"
+	  ],
+	  "tags": [
+	    {
+	      "id": 0,
+	      "name": "string"
+	    }
+	  ],
+	  "status": "available"
+	},
+	
+"Acceptance_Criteria1" :
+		{
+			"category": 
+	        {
+	            "id": 0,
+	            "Name": "testdog"
+	        }
+		}
+}
+
+ ~  = ! /*//~  = !*/

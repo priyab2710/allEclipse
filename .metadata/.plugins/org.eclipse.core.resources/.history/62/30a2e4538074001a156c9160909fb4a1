@@ -1,0 +1,35 @@
+package utilities;
+
+public class Suite1 {
+
+	
+	
+	    private String test = "priyatest";
+	    private String parameter = "priyaparam";
+	/*	public int getX() {
+			return x;
+		}
+		public void setX(int x) {
+			this.x = x;
+		}
+		public int getY() {
+			return y;
+		}
+		public void setY(int y) {
+			this.y = y;
+		}
+	  */
+		public String getTest() {
+			return test;
+		}
+		public void setTest(String test) {
+			this.test = test;
+		}
+		public String getParameter() {
+			return parameter;
+		}
+		public void setParameter(String parameter) {
+			this.parameter = parameter;
+		}   
+	   
+}

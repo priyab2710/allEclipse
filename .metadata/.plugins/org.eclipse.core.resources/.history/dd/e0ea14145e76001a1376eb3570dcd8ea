@@ -1,0 +1,115 @@
+package PetStore.APIAutomation;
+
+import static io.restassured.RestAssured.given;
+
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import io.restassured.path.json.JsonPath;
+import library.SpecBuild;
+import payload.JsonParser;
+import payload.pet.QueryBuilder;
+import payload.pet.petPayload;
+
+public class Test1 {
+
+	long id;
+	
+	@Test(dataProvider="testdata")
+	public void PostPetTest(String categoryName,  String name, String tagName, String status) {
+		  
+		  try {
+		  
+		  
+		  // ADD Pet
+		  String postResponse = given().spec(SpecBuild.requestBuild())
+		  .body(petPayload.PostRequest(categoryName, name, tagName,status))
+		  .when().post("/pet")
+		  .then().spec(SpecBuild.responseBuild()).extract().response().asString();
+		  
+		  JsonPath addPetResponse = JsonParser.jsonparser(postResponse);
+		  
+		  id = addPetResponse.getLong("id"); 
+		   
+		  Assert.assertNotNull(id);
+		  Assert.assertEquals(addPetResponse.get("category.name"), categoryName);
+		  Assert.assertEquals(addPetResponse.get("name"), name);
+		  Assert.assertEquals(addPetResponse.get("tags[0].name"), tagName);
+		  Assert.assertEquals(addPetResponse.get("status"), status);
+		
+		  // Use above Pet id to Get Pet
+		 
+		  
+		  String getResponse=GetPetQueryBuilder.GetResponse(id);
+			
+					  
+		 JsonPath getPetResponse= JsonParser.jsonparser(getResponse); 
+
+							  // Acceptance Criteria
+		 Assert.assertEquals(getPetResponse.get("id"), id);
+		 Assert.assertEquals(getPetResponse.get("category.name"), categoryName);
+		 Assert.assertEquals(getPetResponse.get("name"), name);
+		 Assert.assertEquals(getPetResponse.get("tags[0].name"), tagName);
+		 Assert.assertEquals(getPetResponse.get("status"), status);
+		 
+		 // Delete pet by ID 
+		  
+		  String deleteResponse=
+		  given().spec(SpecBuild.getrequestBuild()).when().delete("/pet/"+id)
+		  .then().spec(SpecBuild.responseBuild()).extract().response().asString();
+		  
+		  JsonPath deletePetResponse= JsonParser.jsonparser(deleteResponse);
+		  
+		  Assert.assertEquals(String.valueOf(id), deletePetResponse.get("message"));
+		  
+
+      }
+		  catch (Exception e)
+		  {e.printStackTrace();}
+	}
+	
+	/*@Test(dataProvider="testdata",dependsOnMethods="PostPetTest")
+	public void GetPetTest(String categoryName,  String name, String tagName, String status) {
+		{
+			 String getResponse=
+			 given().log().all().spec(SpecBuild.requestBuild()).when().get("/pet/"+ id)
+			 .then().log().all().spec(SpecBuild.responseBuild())
+			 .extract().response().asString();
+			  
+			 JsonPath getPetResponse= JsonParser.jsonparser(getResponse); 
+
+					  // Acceptance Criteria
+					  Assert.assertEquals(getPetResponse.get("id"), id);
+					  Assert.assertEquals(getPetResponse.get("category.name"), categoryName);
+					  Assert.assertEquals(getPetResponse.get("name"), name);
+					  Assert.assertEquals(getPetResponse.get("tags[0].name"), tagName);
+					  Assert.assertEquals(getPetResponse.get("status"), status);
+					 
+
+			
+			}
+		} */
+	
+	@DataProvider(name = "testdata")
+	public Object[][] getData()
+	{
+		Object[][] obj = new Object[2][4];
+
+		obj[0][0] = "auto22";
+		obj[0][1] = "autoname22";
+		obj[0][2] = "autotagName22";
+		obj[0][3] = "available";
+
+		
+		 obj[1][0]="auto33";
+		 obj[1][1]="autoname33"; 
+		 obj[1][2]="autotagName33";
+		 obj[1][3] = "pending";
+		 
+
+		return obj;
+
+	}
+
+}

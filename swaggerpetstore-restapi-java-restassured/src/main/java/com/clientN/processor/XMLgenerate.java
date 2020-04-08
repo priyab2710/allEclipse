@@ -1,0 +1,16 @@
+package com.clientN.processor;
+
+
+import org.testng.annotations.Test;
+
+
+
+public class XMLgenerate {
+
+	@Test
+	public void ReadXLS()
+	{
+	XLSReader suite = new XLSReader("tests.xlsx");
+	suite.getTests("select * from TestCase where module='pet'");
+	}
+}

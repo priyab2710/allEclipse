@@ -1,0 +1,36 @@
+package payload.pet;
+
+import static io.restassured.RestAssured.given;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.builder.ResponseSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import io.restassured.specification.ResponseSpecification;
+import library.SpecBuild;
+
+public class DeletePetQueryBuilder {
+
+	
+	public static String DeletePetResponse(long id)
+	{
+		 String deleteResponse=
+				  given().spec(DeletePetQueryBuilder.deleterequestBuild()).when().delete("/pet/"+id)
+				  .then().spec(SpecBuild.responseBuild()).extract().response().asString();
+		 return deleteResponse;
+	}
+	
+	public static RequestSpecification deleterequestBuild()
+	{
+		
+		RequestSpecification req= new RequestSpecBuilder().setBaseUri("https://petstore.swagger.io/v2/").build();
+		return req;
+	}
+	
+	public static ResponseSpecification deleteresponseBuild()
+	{
+		
+		ResponseSpecification res= new ResponseSpecBuilder().expectContentType(ContentType.JSON).expectStatusCode(200).build();
+		return res;
+	}
+}

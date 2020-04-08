@@ -1,0 +1,23 @@
+package XML;
+
+
+import org.testng.annotations.Test;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+
+
+
+public class XMLgenerate {
+
+	@Test
+	public void ReadXLS() throws JsonProcessingException
+	{
+	//XLSReader suite = new XLSReader("tests.xlsx");
+	//suite.getTests("select * from TestCase where module='pet'");
+		XmlMapper xm= new XmlMapper();
+	Suite s = new Suite();
+	String xs= xm.writeValueAsString(s);
+	
+		}
+}

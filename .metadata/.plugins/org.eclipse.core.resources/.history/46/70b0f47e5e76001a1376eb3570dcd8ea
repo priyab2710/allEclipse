@@ -1,0 +1,28 @@
+package payload.pet;
+
+import static io.restassured.RestAssured.given;
+
+import io.restassured.builder.RequestSpecBuilder;
+import io.restassured.http.ContentType;
+import io.restassured.specification.RequestSpecification;
+import library.SpecBuild;
+
+public class PostPetQueryBuilder {
+
+	
+	public static String AddPetPostResponse(String categoryName,  String name, String tagName, String status)
+	{
+		String postResponse = given().spec(PostPetQueryBuilder.requestBuild())
+				  .body(petPayload.PostRequest(categoryName, name, tagName,status))
+				  .when().post("/pet")
+				  .then().spec(SpecBuild.responseBuild()).extract().response().asString();
+		return postResponse;
+	}
+	
+	public static RequestSpecification requestBuild()
+	{
+		
+		RequestSpecification req= new RequestSpecBuilder().setBaseUri("https://petstore.swagger.io/v2/").setContentType(ContentType.JSON).build();
+		return req;
+	}
+}

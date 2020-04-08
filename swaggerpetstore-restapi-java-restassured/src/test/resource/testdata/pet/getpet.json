@@ -1,0 +1,28 @@
+{
+"Sandbox_TestURL" : "https://petstore.swagger.io",
+"endPoint" : "/v2/pet/findByStatus",
+"method" : "get",
+"body" : {},
+"parameter" :{
+				"status" : "available"
+			},
+"propertyTransfer" : [
+			{	"variablename" : "categname",
+				"responseparam" : "category.name"
+			},
+			{
+				"variablename" : "categname",
+				"responseparam" : "category.name"
+			}
+		],
+"Acceptance_Criteria" : [
+			{
+				"name" : "dogg",
+				"tags.name" :"string"
+			},
+			{
+				"status": "available"
+		    }
+		],
+"statuscode" : 200
+}

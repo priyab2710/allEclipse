@@ -1,0 +1,34 @@
+package Utilities;
+
+import files.Payload;
+import io.restassured.path.json.JsonPath;
+
+public class GetResponse {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		
+		   JsonPath js=new JsonPath(Payload.CourseResponseJson());
+           int count= js.getInt("courses.size()");
+          // System.out.println(count);
+           
+           for(int i=0;i<count;i++)
+           {
+        	   
+        	   String title= js.get("courses["+i+"].title");
+        	 
+        	   if(title.equals("RPA"))
+        	   {
+        		   
+            	   System.out.println(title);
+        	    	   int price= js.getInt("courses["+i+"].price");
+        	   System.out.println(price);
+        	   int copies= js.getInt("courses["+i+"].copies");
+        	   System.out.println(copies);
+        	   break;
+           }}
+		
+	}
+
+}

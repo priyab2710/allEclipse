@@ -1,0 +1,11 @@
+package utilities;
+
+public class ClassToSerialize {
+
+	
+	
+	    private int x = 1;
+	    private int y = 2;
+	     
+	   
+}

@@ -1,0 +1,77 @@
+package PetStore.APIAutomation;
+
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.path.json.JsonPath;
+import payload.JsonParser;
+import payload.Payload;
+
+import static io.restassured.RestAssured.*;
+
+public class APITest1 {
+
+	@Test(dataProvider="testdata")
+	public void TestCase1(String categoryName,String name, String tagName )
+	{
+		
+		try {
+		RestAssured.baseURI="https://petstore.swagger.io/v2/";
+		
+		//JsonPath js= JsonParser.jsonparser(Payload.PostRequest(categoryName,name, tagName));
+		
+			
+		
+		String postResponse=  given().header("Content-Type","application/json")
+		.body(Payload.PostRequest(categoryName,name, tagName))
+		.when().log().all().post("/pet")
+		.then().log().all().assertThat().statusCode(200).extract().response().asString();
+ 
+		JsonPath js2= JsonParser.jsonparser(postResponse);
+		
+		long id= js2.get("id");
+		System.out.println(id);
+		
+		String getResponse=  given()
+				.when().get("/pet/"+id)
+				.then().log().all().assertThat().statusCode(200).extract().response().asString();
+				
+		JsonPath js1= JsonParser.jsonparser(getResponse);
+		String actualCategoryName= js1.getString("category.name");
+		Assert.assertEquals(actualCategoryName, categoryName);
+		
+			
+		String deleteResponse=  given()
+				.when().delete("/pet/"+id)
+				.then().log().all().assertThat().statusCode(200).extract().response().asString();
+		
+		JsonPath js3= JsonParser.jsonparser(deleteResponse);
+						
+		Assert.assertEquals(String.valueOf(id), js3.get("message"));
+		}
+		catch (Exception e)
+		
+		{
+			 e.printStackTrace();
+		}
+	}
+	
+	@DataProvider(name="testdata")
+	public Object[][] getData()
+	{
+		Object[][] obj = new Object[2][3];
+		
+		obj[0][0]="auto22";
+		obj[0][1]="autoname22";
+		obj[0][2]="autotagName22";
+		
+		obj[1][0]="auto33";
+		obj[1][1]="autoname33";
+		obj[1][2]="autotagName33";
+		
+		return obj;
+		
+	}
+}
